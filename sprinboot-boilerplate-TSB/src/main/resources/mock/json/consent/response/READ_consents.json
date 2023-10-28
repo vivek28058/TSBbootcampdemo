@@ -1,0 +1,44 @@
+
+{
+  "_embedded": {
+    "consents": [
+      {
+        "_links": {
+          "definition": {
+            "href": "https://localhost:1443/consent/v1/definitions/medical_record"
+          },
+          "localization": {
+            "href": "https://localhost:1443/consent/v1/definitions/medical_record/localizations/en-US",
+            "hreflang": "en-US"
+          },
+          "self": {
+            "href": "https://localhost:1443/consent/v1/consents/f0c0ac1d-a493-426d-9211-224255145d28"
+          }
+        },
+        "actor": "jacob",
+        "audience": "client1",
+        "collaborators": ["Alice","Bob"],
+        "createdDate": "2018-03-26T18:43:28.616Z",
+        "dataText": "View your medical records",
+        "definition": {
+          "currentVersion": "1.0",
+          "id": "medical_record",
+          "locale": "en-US",
+          "version": "1.0"
+        },
+        "id": "f0c0ac1d-a493-426d-9211-224255145d28",
+        "purposeText": "To view your medical records",
+        "status": "accepted",
+        "subject": "jacob",
+        "updatedDate": "2018-03-26T18:43:28.616Z"
+      }
+    ]
+  },
+  "_links": {
+    "self": {
+      "href": "https://localhost:1443/consent/v1/consents/check?subject=jacob&definition=medical_record"
+    }
+  },
+  "count": 1,
+  "size": 1
+}

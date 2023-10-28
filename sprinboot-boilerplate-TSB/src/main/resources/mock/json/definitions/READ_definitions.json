@@ -1,0 +1,22 @@
+{
+  "_links": {
+    "self": {
+      "href": "https://<server>/consent/v1/definitions"
+    }
+  },
+  "_embedded": {
+    "definitions": [
+      {
+        "id": "share-my-email",
+        "displayName": "ShareEmail",
+        "_links": {
+          "self": {
+            "href": "https://<server>/consent/v1/definitions/share-my-email"
+          }
+        }
+      }
+    ]
+  },
+  "size": 1,
+  "count": 1
+}

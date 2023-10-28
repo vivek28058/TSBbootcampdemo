@@ -1,0 +1,20 @@
+apiVersion:
+kind: Deployment
+metadata:
+  name: springboot-boiler
+  namespace: <yourns>
+spec:
+  release: dev
+  replicas: 1
+  sidecars:
+    - name: TBD
+      image: TBD
+      command: [ "sidecar" ]
+      args:
+        -
+  apps:
+    - name: yourappname
+      image: <yourimage>:develop
+  metric:
+    scrape: "true"
+    path: /actuator/prometheus

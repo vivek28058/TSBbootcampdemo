@@ -1,0 +1,19 @@
+{
+  "Code": "400 BadRequest",
+  "Id": "2b5f0fb2-730b-11e8-adc0-fa7ae01bbebc",
+  "Message": "Invalid request parameters.",
+  "Errors": [
+    {
+      "ErrorCode": "UK.OBIE.Field.Missing",
+      "Message": "Instructed identification is missing",
+      "Path": "Data.Initiation.InstructionIdentification",
+      "Url": "<url to the api reference for Payment Inititaion API>"
+    },
+    {
+      "ErrorCode": "UK.OBIE.Unsupported.Scheme",
+      "Message": "Scheme name supplied is not supported",
+      "Path": "Data.Initiation.CreditorAccount.SchemeName",
+      "Url": "<url to the online documentation referring supported scheme names>"
+    }
+  ]
+}

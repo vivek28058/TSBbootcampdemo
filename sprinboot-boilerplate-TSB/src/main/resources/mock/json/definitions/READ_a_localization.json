@@ -1,0 +1,15 @@
+{
+  "_links": {
+    "parent": {
+      "href": "https://localhost:1443/consent/v1/definitions/medical_record"
+    },
+    "self": {
+      "href": "https://localhost:1443/consent/v1/definitions/medical_record/localizations/en-US"
+    }
+  },
+  "id": "en-US",
+  "locale": "en-US",
+  "version": "1.0",
+  "dataText": "View your medical record",
+  "purposeText": "To view your medical records"
+}

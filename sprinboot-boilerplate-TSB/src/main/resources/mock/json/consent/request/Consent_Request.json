@@ -1,0 +1,15 @@
+{
+  "status": "<string>",
+  "subject": "<string>",
+  "actor": "<string>",
+  "audience": "<string>",
+  "definition": {
+    "id": "<string>",
+    "version": "<string>",
+    "locale": "<string>"
+  },
+  "dataText": "<string>",
+  "purposeText": "<string>",
+  "data": "<object>",
+  "consentContext": "<object>"
+}

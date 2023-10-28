@@ -1,0 +1,28 @@
+{
+  "_links": {
+    "localization": {
+      "href": "https://localhost:1443/consent/v1/definitions/medical_record/localizations/en-US",
+      "hreflang": "en-US"
+    },
+    "self": {
+      "href": "https://localhost:1443/consent/v1/consents/7f577510-414e-4fea-bb2c-43d2b5119431"
+    },
+    "definition": {
+      "href": "https://localhost:1443/consent/v1/definitions/liquor_cabinet"
+    }
+  },
+  "id": "7f577510-414e-4fea-bb2c-43d2b5119431",
+  "status": "accepted",
+  "subject": "jacob",
+  "actor": "jacob",
+  "audience": "client1",
+  "definition": {
+    "id": "medical_record",
+    "version": "1.0",
+    "locale": "en-US"
+  },
+  "dataText": "You agree to share this data...",
+  "purposeText": "This data will be used for...",
+  "createdDate": "2018-03-26T22:45:18.170Z",
+  "updatedDate": "2018-03-26T22:45:18.170Z"
+}
