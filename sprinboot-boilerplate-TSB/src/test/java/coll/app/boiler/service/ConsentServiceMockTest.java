@@ -3,8 +3,6 @@ package coll.app.boiler.service;
 import coll.app.boiler.dto.response.consent.ConsentResponseDto;
 import coll.app.boiler.dto.response.consent.ConsentResponsePostPutPatchDto;
 import coll.app.boiler.exception.CustomException;
-import coll.app.boiler.model.response.consent.ConsentResponse;
-import coll.app.boiler.model.response.consent.ConsentResponsePostPutPatch;
 import coll.app.boiler.model.response.token.TokenResponse;
 import coll.app.boiler.setup.BaseWebClientMockedTest;
 import coll.app.boiler.util.JsonUtil;
@@ -27,7 +25,7 @@ import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.when;
 
 
-public class ConsentServiceMock extends BaseWebClientMockedTest {
+public class ConsentServiceMockTest extends BaseWebClientMockedTest {
 
 
     //token for this consent api

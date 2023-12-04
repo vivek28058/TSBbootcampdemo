@@ -1,7 +1,6 @@
 package coll.app.boiler.controller;
 
 
-import coll.app.boiler.exception.CustomException;
 import coll.app.boiler.setup.BaseControllerMockedTest;
 import coll.app.boiler.util.JsonUtil;
 import org.junit.jupiter.api.DisplayName;
@@ -9,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import reactor.core.publisher.Mono;
 import static org.mockito.Mockito.when;
 
-public class UserInfoControllerMock extends BaseControllerMockedTest {
+public class UserInfoControllerMockTest extends BaseControllerMockedTest {
 
 
     @Test

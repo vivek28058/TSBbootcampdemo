@@ -2,7 +2,6 @@ package coll.app.boiler.service;
 
 import coll.app.boiler.dto.response.definition.DefinitionsResponseDto;
 import coll.app.boiler.exception.CustomException;
-import coll.app.boiler.model.response.definitions.DefinitionsResponse;
 import coll.app.boiler.model.response.token.TokenResponse;
 import coll.app.boiler.setup.BaseWebClientMockedTest;
 import coll.app.boiler.util.JsonUtil;
@@ -25,7 +24,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.when;
 
-public class DefinitionsServiceMock extends BaseWebClientMockedTest {
+public class DefinitionsServiceMockTest extends BaseWebClientMockedTest {
 
     //token for this definitions api
     @BeforeEach

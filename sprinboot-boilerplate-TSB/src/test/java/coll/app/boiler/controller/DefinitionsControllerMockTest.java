@@ -9,7 +9,7 @@ import reactor.core.publisher.Mono;
 
 import static org.mockito.Mockito.when;
 
-public class DefinitionsControllerMock extends BaseControllerMockedTest {
+public class DefinitionsControllerMockTest extends BaseControllerMockedTest {
 
     @Test
     @DisplayName("Success Response - Internal Api - Consent - READ definitions")
