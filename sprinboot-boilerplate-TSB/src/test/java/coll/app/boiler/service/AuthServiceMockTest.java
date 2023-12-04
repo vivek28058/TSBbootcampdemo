@@ -1,13 +1,11 @@
 package coll.app.boiler.service;
 
-import coll.app.boiler.setup.BaseWebClientMockedTest;
 import coll.app.boiler.exception.CustomException;
-import coll.app.boiler.model.response.userInfo.UserInfoResponse;
+import coll.app.boiler.model.response.token.TokenResponse;
+import coll.app.boiler.setup.BaseWebClientMockedTest;
 import coll.app.boiler.util.JsonUtil;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
-import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
 import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
@@ -17,25 +15,26 @@ import java.util.function.Predicate;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.when;
 
+public class AuthServiceMockTest extends BaseWebClientMockedTest {
 
-public class UserInfoServiceMock extends BaseWebClientMockedTest {
 
     @Test
-    @DisplayName("Success - External API - User Info API")
-    public void externalApiUserInfoSuccessTest(){
+    @DisplayName("Success - Token External Api")
+    void tokenSuccessResponseMock(){
 
         when(webClientMock.post())
                 .thenReturn(requestBodyUriMock);
 
-        when(requestBodyUriMock.uri(Mockito.eq(userInfoUri)))
+        when(requestBodyUriMock.uri(eq(tokenUrl)))
                 .thenReturn(requestBodyMock);
 
         when(requestBodyMock.headers(any()))
                 .thenReturn(requestBodyMock);
 
-        when(requestBodyMock.bodyValue(Mockito.eq(userInfoRequest)))
+        when(requestBodyMock.bodyValue(eq(tokenRequest)))
                 .thenReturn(requestHeadersMock);
 
         when(requestHeadersMock.retrieve())
@@ -49,31 +48,30 @@ public class UserInfoServiceMock extends BaseWebClientMockedTest {
                 .thenCallRealMethod();
 
         when(responseSpecMock.bodyToMono(String.class))
-                        .thenReturn(Mono.just(JsonUtil.toJson(userInfoResponse)));
+                .thenReturn(Mono.just(JsonUtil.toJson(tokenResponse)));
 
-        Mono<UserInfoResponse> userInfoResponseMono = userInfoServiceImpl.getUserInfo(userInfoRequest);
+      Mono<TokenResponse> tokenResponseMono =  authServiceImpl.getToken();
 
-        StepVerifier.create(userInfoResponseMono)
-                .expectNext(userInfoResponse)
+        StepVerifier.create(tokenResponseMono)
+                .expectNext(tokenResponse)
                 .verifyComplete();
     }
 
-
     @Test
-    @DisplayName("Api Error - External API - User Info API - (400 Bad Request)")
-    public void externalApiUserInfoErrorTest(){
-
+    @DisplayName("Error - Token External Api")
+     void tokenErrorResponseMock(){
+        System.out.println(tokenRequest);
 
         when(webClientMock.post())
                 .thenReturn(requestBodyUriMock);
 
-        when(requestBodyUriMock.uri(Mockito.eq(userInfoUri)))
+        when(requestBodyUriMock.uri(eq(tokenUrl)))
                 .thenReturn(requestBodyMock);
 
         when(requestBodyMock.headers(any()))
                 .thenReturn(requestBodyMock);
 
-        when(requestBodyMock.bodyValue(Mockito.eq(userInfoRequest)))
+        when(requestBodyMock.bodyValue(eq(tokenRequest)))
                 .thenReturn(requestHeadersMock);
 
         when(requestHeadersMock.retrieve())
@@ -86,24 +84,20 @@ public class UserInfoServiceMock extends BaseWebClientMockedTest {
                 .onStatus(any(Predicate.class), any(Function.class)))
                 .thenCallRealMethod();
 
-
         when(responseSpecMock.bodyToMono(String.class))
-                .thenReturn(Mono.just(JsonUtil.toJson(userInfoError)));
+                .thenReturn(Mono.error(new RuntimeException("Error")));
 
-        when(responseSpecMock.bodyToMono(String.class))
-                .thenReturn(Mono.error(customExceptionUserInfo));
+        Mono<TokenResponse> tokenResponseMono =  authServiceImpl.getToken();
 
-        Mono<UserInfoResponse> userInfoResponseMono = userInfoServiceImpl.getUserInfo(userInfoRequest);
-
-        StepVerifier.create(userInfoResponseMono)
+        StepVerifier.create(tokenResponseMono)
                 .expectErrorSatisfies(t -> {
                     assertThat(t).isInstanceOf(CustomException.class);
                     CustomException customEx = (CustomException) t;
-                    assertThat(customEx.getStatus()).isEqualTo("451");
-                    assertThat(customEx.getDescription()).isEqualTo("Failed to fetch user information");
+                    assertThat(customEx.getStatus()).isEqualTo(customExceptionToken.getStatus());
+                    assertThat(customEx.getDescription()).isEqualTo(customExceptionToken.getDescription());
                 })
                 .verify();
-
     }
+
 
 }
