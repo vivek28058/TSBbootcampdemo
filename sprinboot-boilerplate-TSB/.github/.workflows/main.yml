@@ -1,4 +1,4 @@
-name: Junit Integration on Java 
+name: TSB boiler plate 
 
 on:
   push:
